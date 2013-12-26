@@ -53,7 +53,7 @@ public class TelnetServer {
 
     public void stop() {
         sLogger.info("Killing TelnetServer");
-        mExecutor.shutdown();
+        mExecutor.shutdownNow();
         mExecutor = null;
         mSocketMap.clear();
     }
