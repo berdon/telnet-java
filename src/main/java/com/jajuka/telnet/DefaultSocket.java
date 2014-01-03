@@ -45,7 +45,7 @@ class DefaultSocket implements Socket {
     @Override
     public void disconnect() {
         mSocket.closeAfterWrite();
-        //mSocket.write(null);
+        mSocket.write("".getBytes());
     }
 
     @Override

@@ -144,7 +144,11 @@ public class TelnetServer {
 
         @Override
         public void connectionBroken(NIOSocket nioSocket, Exception e) {
-            mSocketMap.remove(nioSocket);
+            final Socket socket = mSocketMap.remove(nioSocket);
+
+            if (mSocketObserver != null) {
+                mSocketObserver.onDisconnect(socket);
+            }
         }
 
         @Override
